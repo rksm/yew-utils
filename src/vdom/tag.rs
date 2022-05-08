@@ -258,4 +258,96 @@ impl Tag<TagTypeInput> {
         self.tag.set_value(value);
         self
     }
+
+    pub fn type_button(self) -> Self {
+        self.attr("type", "button")
+    }
+
+    pub fn type_checkbox(self) -> Self {
+        self.attr("type", "checkbox")
+    }
+
+    pub fn type_color(self) -> Self {
+        self.attr("type", "color")
+    }
+
+    pub fn type_date(self) -> Self {
+        self.attr("type", "date")
+    }
+
+    pub fn type_datetime(self) -> Self {
+        self.attr("type", "datetime")
+    }
+
+    pub fn type_datetime_local(self) -> Self {
+        self.attr("type", "datetime-local")
+    }
+
+    pub fn type_email(self) -> Self {
+        self.attr("type", "email")
+    }
+
+    pub fn type_file(self) -> Self {
+        self.attr("type", "file")
+    }
+
+    pub fn type_hidden(self) -> Self {
+        self.attr("type", "hidden")
+    }
+
+    pub fn type_image(self) -> Self {
+        self.attr("type", "image")
+    }
+
+    pub fn type_month(self) -> Self {
+        self.attr("type", "month")
+    }
+
+    pub fn type_number(self) -> Self {
+        self.attr("type", "number")
+    }
+
+    pub fn type_password(self) -> Self {
+        self.attr("type", "password")
+    }
+
+    pub fn type_radio(self) -> Self {
+        self.attr("type", "radio")
+    }
+
+    pub fn type_range(self) -> Self {
+        self.attr("type", "range")
+    }
+
+    pub fn type_reset(self) -> Self {
+        self.attr("type", "reset")
+    }
+
+    pub fn type_search(self) -> Self {
+        self.attr("type", "search")
+    }
+
+    pub fn type_submit(self) -> Self {
+        self.attr("type", "submit")
+    }
+
+    pub fn type_tel(self) -> Self {
+        self.attr("type", "tel")
+    }
+
+    pub fn type_text(self) -> Self {
+        self.attr("type", "text")
+    }
+
+    pub fn type_time(self) -> Self {
+        self.attr("type", "time")
+    }
+
+    pub fn type_url(self) -> Self {
+        self.attr("type", "url")
+    }
+
+    pub fn type_week(self) -> Self {
+        self.attr("type", "week")
+    }
 }

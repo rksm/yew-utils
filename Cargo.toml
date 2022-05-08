@@ -10,7 +10,7 @@ keywords = ["wasm", "yew"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/rksm/yew-utils"
-description = ""
+description = "Some batteries for the yew WebAssembly frontend framework."
 
 [features]
 default = ["yew-router"]
