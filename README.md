@@ -87,8 +87,4 @@ let rows = data
 let table = Table::render(columns, yew::Children::new(rows));
 ```
 
-### LICENSE
-
-MIT
-
 License: MIT

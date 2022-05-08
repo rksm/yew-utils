@@ -92,10 +92,6 @@
 //! # todo!();
 //! # }
 //! ```
-//!
-//! ## LICENSE
-//!
-//! MIT
 
 pub mod components;
 pub mod vdom;
