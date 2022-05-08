@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Robert Krahn <robert@kra.hn>"]
 categories = ["wasm", "web-programming", "gui"]
 edition = "2021"
-exclude = []
+exclude = ["*.bak"]
 homepage = "https://github.com/rksm/yew-utils"
 keywords = ["wasm", "yew"]
 license = "MIT"
@@ -17,7 +17,7 @@ default = ["yew-router"]
 yew-router = ["dep:yew-router"]
 
 [dependencies]
-web-sys = { version = "0.3.57", features = ["Document", "Element", "HtmlCollection", "NodeList", "Window", "HtmlCanvasElement", "HtmlSelectElement"] }
+web-sys = { version = "0.3.57", features = ["HtmlSelectElement"] }
 yew = "0.19.3"
 yew-router = { version = "0.16.0", optional = true }
 
