@@ -105,7 +105,7 @@ where
 
     #[must_use]
     pub fn node_ref(mut self, node_ref: yew::NodeRef) -> Self {
-        self.node_ref = Some(node_ref);
+        self.tag.node_ref = node_ref;
         self
     }
 }
