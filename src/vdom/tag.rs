@@ -14,7 +14,6 @@ impl TagType for TagTypeInput {}
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 pub struct Tag<T: TagType = TagTypeDefault> {
-    node_ref: Option<yew::NodeRef>,
     tag: vdom::VTag,
     listeners: Vec<Option<Rc<dyn vdom::Listener>>>,
     additional_props: PhantomData<T>,
@@ -38,7 +37,6 @@ where
 {
     pub(crate) fn new(tag: impl Into<Cow<'static, str>>) -> Self {
         Self {
-            node_ref: None,
             tag: vdom::VTag::new(tag),
             listeners: Vec::new(),
             additional_props: PhantomData,
@@ -47,7 +45,6 @@ where
 
     fn with_props(tag: impl Into<Cow<'static, str>>) -> Self {
         Self {
-            node_ref: None,
             tag: vdom::VTag::new(tag),
             listeners: Vec::new(),
             additional_props: PhantomData,
