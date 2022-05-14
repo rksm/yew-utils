@@ -1,10 +1,10 @@
 [package]
 name = "yew-utils"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Robert Krahn <robert@kra.hn>"]
 categories = ["wasm", "web-programming", "gui"]
 edition = "2021"
-exclude = ["*.bak"]
+exclude = ["*.bak", "DEV.org", ".dir-locals.el"]
 homepage = "https://github.com/rksm/yew-utils"
 keywords = ["wasm", "yew"]
 license = "MIT"
@@ -13,8 +13,9 @@ repository = "https://github.com/rksm/yew-utils"
 description = "Some batteries for the yew WebAssembly frontend framework."
 
 [features]
-default = ["yew-router"]
+default = []
 yew-router = ["dep:yew-router"]
+mui-css = []
 
 [dependencies]
 web-sys = { version = "0.3.57", features = ["HtmlSelectElement"] }

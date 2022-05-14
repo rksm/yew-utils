@@ -1,12 +1,10 @@
 //! Provides a Rust interface for constructing yew virtual DOM elements.
 
 mod comp;
-mod link;
 mod tag;
 mod text;
 
 pub use comp::Comp;
-pub use link::Link;
 pub use tag::Tag;
 pub use text::Text;
 
@@ -19,11 +17,6 @@ pub fn tag(tag: impl Into<Cow<'static, str>>) -> Tag {
 
 pub fn text(text: impl Into<vdom::AttrValue>) -> Text {
     Text::new(text)
-}
-
-#[cfg(feature = "yew-router")]
-pub fn yew_link<R: yew_router::Routable + 'static>(to: R) -> Link<R> {
-    Link::new(to)
 }
 
 pub fn input() -> Tag<tag::TagTypeInput> {
@@ -207,3 +200,17 @@ known_tag!(var);
 known_tag!(video);
 known_tag!(wbr);
 known_tag!(xmp);
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// yew-router link
+
+#[cfg(feature = "yew-router")]
+mod link;
+
+#[cfg(feature = "yew-router")]
+pub use link::Link;
+
+#[cfg(feature = "yew-router")]
+pub fn yew_link<R: yew_router::Routable + 'static>(to: R) -> Link<R> {
+    Link::new(to)
+}
