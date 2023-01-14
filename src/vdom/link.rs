@@ -19,6 +19,7 @@ where
             query: None,
             disabled: false,
             children: yew::Children::default(),
+            anchor_ref: Default::default(),
         };
 
         Self { props }

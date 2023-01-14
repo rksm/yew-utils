@@ -2,41 +2,48 @@ use std::rc::Rc;
 use yew::virtual_dom as vdom;
 
 /// Better interface for [vdom::VComp]
-pub struct Comp<T>
+pub struct Comp<'a, T>
 where
-    T: yew::Component,
+    T: yew::BaseComponent,
 {
     props: T::Properties,
+    key: Option<&'a str>,
 }
 
-impl<T> Comp<T>
+impl<'a, T> Comp<'a, T>
 where
-    T: yew::Component,
+    T: yew::BaseComponent,
 {
     pub(crate) fn new(props: T::Properties) -> Self {
-        Self { props }
+        Self { props, key: None }
+    }
+
+    #[must_use]
+    pub fn key(mut self, key: &'a str) -> Self {
+        self.key = Some(key);
+        self
     }
 
     #[must_use]
     pub fn to_vnode(self) -> vdom::VNode {
-        let node_ref = yew::NodeRef::default();
-        let comp = vdom::VComp::new::<T>(Rc::new(self.props), node_ref, None);
+        let key = self.key.map(|k| k.into());
+        let comp = vdom::VComp::new::<T>(Rc::new(self.props), key);
         vdom::VNode::VComp(comp)
     }
 }
 
-impl<T> From<Comp<T>> for vdom::VNode
+impl<'a, T> From<Comp<'a, T>> for vdom::VNode
 where
-    T: yew::Component,
+    T: yew::BaseComponent,
 {
     fn from(builder: Comp<T>) -> Self {
         builder.to_vnode()
     }
 }
 
-impl<T> From<Comp<T>> for yew::Children
+impl<'a, T> From<Comp<'a, T>> for yew::Children
 where
-    T: yew::Component,
+    T: yew::BaseComponent,
 {
     fn from(comp: Comp<T>) -> Self {
         yew::Children::new([comp.into()].to_vec())

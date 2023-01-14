@@ -35,17 +35,17 @@ pub fn slider(min: i32, max: i32, value: i32) -> Tag<tag::TagTypeInput> {
         .value(value.to_string())
 }
 
-pub fn comp_with<T>(props: T::Properties) -> Comp<T>
+pub fn comp_with<'a, T>(props: T::Properties) -> Comp<'a, T>
 where
-    T: yew::Component,
+    T: yew::BaseComponent,
 {
     Comp::new(props)
 }
 
-pub fn comp<T>() -> Comp<T>
+pub fn comp<'a, T>() -> Comp<'a, T>
 where
-    T: yew::Component,
-    <T as yew::Component>::Properties: Default,
+    T: yew::BaseComponent,
+    <T as yew::BaseComponent>::Properties: Default,
 {
     Comp::new(Default::default())
 }

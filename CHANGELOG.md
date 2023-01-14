@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.0] - 2023-01-14
+### Changed
+- support for yew 0.20 and yew-router 0.17
+
 ## [0.2.0] - 2022-05-14
 ### Added
 - features: `mui-css`

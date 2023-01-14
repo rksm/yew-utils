@@ -129,7 +129,7 @@ where
     fn update_listeners(&mut self) {
         // argh, yeq implements the listeners list statically
         #[rustfmt::skip]
-        self.tag.set_listener(match self.listeners.as_slice() {
+        self.tag.set_listeners(match self.listeners.as_slice() {
             [a] => Box::new([a.clone()]),
             [a, b] => Box::new([a.clone(), b.clone()]),
             [a, b, c] => Box::new([a.clone(), b.clone(), c.clone()]),
