@@ -19,6 +19,7 @@ where
     pub initial: T,
     pub options: Vec<T>,
     pub selection_changed: Callback<T>,
+    pub class_css: Option<String>,
 }
 
 impl<T> Component for DropDown<T>
@@ -37,9 +38,12 @@ where
 
     fn view(&self, ctx: &Context<Self>) -> Html {
         let node = self.node.clone();
-
+        let css_class = match ctx.props().class_css.clone() {
+            Some(class) => class,
+            None => "".into(),
+        };
         html! {
-            <select ref={node.clone()} onchange={ctx.link().callback(move |_| {
+            <select class={css_class} ref={node.clone()} onchange={ctx.link().callback(move |_| {
                 let node2: HtmlSelectElement = node.cast().unwrap();
                 let idx = node2.selected_index() as usize;
                 Msg::SelectionChanged(idx)
