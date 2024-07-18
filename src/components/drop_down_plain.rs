@@ -23,7 +23,7 @@ where
 
 impl<T> Component for DropDown<T>
 where
-    T: Display + Clone + PartialEq + 'static,
+    T: Display + Clone + PartialEq + yew::ToHtml + 'static,
 {
     type Message = Msg;
     type Properties = DropDownProps<T>;

@@ -18,8 +18,9 @@ where
             classes: yew::Classes::new(),
             query: None,
             disabled: false,
-            children: yew::Children::default(),
+            children: vdom::VNode::VList(Default::default()).into(),
             anchor_ref: Default::default(),
+            state: Default::default(),
         };
 
         Self { props }
@@ -27,13 +28,8 @@ where
 
     #[must_use]
     pub fn append_all(mut self, nodes: impl IntoIterator<Item = impl Into<vdom::VNode>>) -> Self {
-        let children = self
-            .props
-            .children
-            .into_iter()
-            .chain(nodes.into_iter().map(|ea| ea.into()))
-            .collect();
-        self.props.children = yew::Children::new(children);
+        let list = self.props.children.to_vlist_mut();
+        list.add_children(nodes.into_iter().map(|ea| ea.into()));
         self
     }
 

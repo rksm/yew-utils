@@ -24,7 +24,6 @@ where
         self
     }
 
-    #[must_use]
     pub fn to_vnode(self) -> vdom::VNode {
         let key = self.key.map(|k| k.into());
         let comp = vdom::VComp::new::<T>(Rc::new(self.props), key);

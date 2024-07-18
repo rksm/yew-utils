@@ -1,5 +1,7 @@
 # yew-utils
 
+![crates.io](https://img.shields.io/crates/v/yew-utils.svg)
+
 [Yew](https://yew.rs/) is a great framework for building WebAssembly
 frontends with Rust. It's not exactly batteries included, however, and does
 rely quite a bit on macros. This crate is not an official companion crate,
@@ -86,5 +88,28 @@ let rows = data
 
 let table = Table::render(columns, yew::Children::new(rows));
 ```
+
+### features
+
+#### `yew-router`
+
+_Not_ enabled by default.
+
+Will enable the vdom function [`yew_utils::vdom::yew_link(to: impl yew_router::Routable)`](vdom::yew_link). It is /not/ enabled by default.
+
+#### `mui-css`
+
+_Not_ enabled by default.
+
+This expects that you load the mui-css CSS and JS, e.g.:
+
+```html
+<head>
+ <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+ <script src="https://cdn.muicss.com/mui-0.10.3/js/mui.js"></script>
+</head>
+```
+
+Will replace the [`yew_utils::components::drop_down::DropDown`](components::drop_down::DropDown) component with a version that is styled with [mui-css](https://www.muicss.com/), in particular see [mui-css dropdowns](https://www.muicss.com/docs/v1/css-js/dropdowns).
 
 License: MIT

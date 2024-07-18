@@ -51,7 +51,6 @@ where
         }
     }
 
-    #[must_use]
     pub fn to_vnode(self) -> vdom::VNode {
         vdom::VNode::VTag(Box::new(self.tag))
     }
